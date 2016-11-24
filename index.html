@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/index.css">
+
+    <link href="https://unpkg.com/animate.css@3.5.1/animate.min.css" rel="stylesheet" type="text/css">
+
+
+</head>
+<body>
+
+<div id="app">
+    {{ message }}
+</div>
+
+<div id="app2">
+  <span v-bind:title="message">
+    Hover your mouse over me for a few seconds to see my dynamically bound title!
+  </span>
+</div>
+
+<div id="app3">
+    <input type="text" v-model="see">
+    <p v-if="see">now you can see me</p>
+</div>
+
+<div id="app4">
+    <ul>
+        <li v-for="todo in todos">
+            {{todo.text}}
+        </li>
+    </ul>
+</div>
+
+<div id="app5">
+    <p>{{message}}</p>
+    <button v-on:click="reverseMessage">翻转字符串</button>
+</div>
+
+<div id="app6">
+    <p>{{message}}</p>
+    <input type="text" v-model="message">
+</div>
+
+<div id="app7">
+    <ol>
+        <todo-item v-for="item in list" v-bind:todo="item"></todo-item>
+    </ol>
+</div>
+
+<div id="app8">
+    {{num+2*9}}
+    {{ok?'yes':'no'}}
+    {{message | meiyuan | rmb('abc')}}
+    {{fullname()}}
+</div>
+
+
+<div id="app9">
+    输入节日： <input type="text" v-model="question">
+    <p>{{answer}}</p>
+</div>
+
+<div id="app10" class="app10" v-bind:class="classobj" v-bind:style="styleobj">
+    <p>你好，vuejs!</p>
+</div>
+
+<div id="app11">
+    <ul>
+        <li v-for="(value, key,index) in objects">{{index}}:{{key}}-{{value}}</li>
+    </ul>
+</div>
+
+
+<div id="app12">
+    <input type="text" v-model="newNode" v-on:keyup.enter="addNode">
+    <ul>
+        <li is="item" v-for="(title ,index) in items" v-bind:title='title' v-on:remove='items.splice(index,1)'></li>
+    </ul>
+</div>
+
+
+<div id="app13">
+    <button v-on:click="add">点击加1</button>
+    <p>这个按钮被点击了{{num}}</p>
+</div>
+
+<div id="app14">
+    <input type="text" v-on:keyup.13="keyups(value)" v-model="value">
+    <input type="text" v-on:keyup.enter="keyups(value)" v-model="value">
+</div>
+
+<div id="app15">
+
+    <input type="checkbox" id="checkbox" v-model="checked">
+    <label for="checkbox">{{ checked }}</label>
+    <br>
+
+    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+    <label for="jack">Jack</label>
+    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+    <label for="john">John</label>
+    <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+    <label for="mike">Mike</label>
+    <br>
+    <span>Checked names: {{ checkedNames }}</span>
+
+    <br>
+
+    <input type="radio" id="one" value="One" v-model="picked">
+    <label for="one">One</label>
+    <br>
+    <input type="radio" id="two" value="Two" v-model="picked">
+    <label for="two">Two</label>
+    <br>
+    <span>Picked: {{ picked }}</span>
+
+    <br>
+    <select v-model="selected">
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+    <span>Selected: {{ selected }}</span>
+
+</div>
+
+
+<div id="example-3">
+    <button @click="show = !show">
+        Toggle render
+    </button>
+    <transition
+            name="custom-classes-transition"
+            enter-active-class="animated tada"
+            leave-active-class="animated bounceOutRight"
+    >
+        <p v-if="show">hello</p>
+    </transition>
+</div>
+
+
+<div id="app16">
+    <input type="text" value="自定义指令" v-dir>
+</div>
+
+
+
+<script src="js/jquery.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+.app10{
+    width: 200px;
+    height: 100px;
+}
+.success{
+    background-color: green;
+}
+.error{
+    background-color: red;
+
+}
